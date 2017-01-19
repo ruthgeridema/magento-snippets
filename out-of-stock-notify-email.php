@@ -5,6 +5,7 @@ $since      = strtotime('yesterday'); //Speaks for itself
 $mailto     = "mail@mailprovider.com";
 $mailfrom   = "mail@mailprovider.com";
 $adminurl   = "https://www.youradmin/admin";
+$subject    = 'Products out of stock';
 
 date_default_timezone_set('Europe/Amsterdam'); //Change to your own needs
 
@@ -30,8 +31,6 @@ foreach ($outOfStockItems as $item) {
     $message .= '<a href="' . $adminurl . '/catalog_product/edit/id/' . $product->getId() . '/"><strong>' .   $product->getName() . ' </strong></a> | SKU:  ' . $product->getSku() . '<br>';
 }
 
-
-$subject = 'Out of stock products';
 
 $headers = "From: " . $mailto . "\r\n";
 $headers .= "MIME-Version: 1.0\r\n";
