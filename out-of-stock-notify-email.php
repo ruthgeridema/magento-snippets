@@ -1,4 +1,15 @@
 <?php
+//Hacky a.f. 
+//Generates an e-mail to a given e-mail address with the products that went out of stock yesterday
+
+//Just setup a cronjob to this file. 
+
+//The safest way is to put it outside the web root directory
+//You can put it in an public folder (for example: /scripts) and put this in your .htaccess:
+//Order deny,allow
+//Deny from all
+
+
 
 //SETTINGS
 $since      = strtotime('yesterday'); //Speaks for itself
@@ -23,7 +34,7 @@ $outOfStockItems = Mage::getModel('cataloginventory/stock_item')
 
 //Start email message
 $message = '<html><body>';
-$message .= '<h1>Producten die niet meer voorradig zijn:</h1>';
+$message .= '<h1>Out of stock:</h1>';
 
 
 foreach ($outOfStockItems as $item) {
