@@ -15,7 +15,7 @@ Required:
 - Activa for Asterisk 
 - Phoner (http://www.phoner.de/index_en.htm)
 
-How to setup?
+#Installation
 
 ##Setup Activa / TAPI
 Install Activa, and fill in the settings like:
