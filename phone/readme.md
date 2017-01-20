@@ -11,6 +11,8 @@ How to setup?
 **Setup Activa / TAPI**
 Install Activa, and fill in the settings like:
 
+![alt tag](https://i.gyazo.com/164a57c8f2123a9a69edd1204724f24f.png)
+
 If you haven't got an asterisk server, try finding an installer which adds your voip phone to your windows enviroment.
 
 **Install on webserver**
@@ -29,6 +31,7 @@ After that go to Options>>External Application
 Selected connected.bat under the 'connected call' field, click on 'OK'.
 
 
+![alt tag](https://i.gyazo.com/600784d9e45789d2d849ef41a6e815ca.png)
 You get the idea, if something doesn't work you can easily find it yourself.
 
 
