@@ -27,6 +27,8 @@ Check if your phone is there. If not; make it go there :)
 After that go to Options>>External Application
 Selected connected.bat under the 'connected call' field, click on 'OK'.
 
+![alt tag](https://i.gyazo.com/600784d9e45789d2d849ef41a6e815ca.png)
+
 You get the idea, if something doesn't work you can easily find it yourself.
 
 
