@@ -1,3 +1,4 @@
+![alt tag](https://s27.postimg.org/3kxrjdpeb/magentophone.png)
 # Open sales order page in magento by phone
 
 Needed:
