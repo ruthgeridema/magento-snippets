@@ -3,7 +3,7 @@
 //Dutch postalcode checker
 //Enough plugins to achieve this, but didn't fit my needs
 //For https://www.postcode.nl/
-//Just post Postalcode, housenumber and addition
+//Just post Postalcode, housenumber and addition to this file
 
 $postalcode   = htmlspecialchars($_POST["postalcode"]);
 $housenumber  = htmlspecialchars($_POST["housenumber"]);
