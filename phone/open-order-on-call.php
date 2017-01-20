@@ -1,37 +1,60 @@
 <?php
-
-//SETTINGS
-$phonenumber    = htmlspecialchars($_POST["postalcode"]);
-$leavecomment   = 1; //1 for yes, 0 for no
-$comment        = "Customer called!";
-$adminurl       = "https://magentoadmin.com/admin";
-$time           = date('H:i:s', time());
-
-
+//Load up Magento
 require_once '../app/Mage.php';
 Mage::app();
 umask(0);
 
 
-$CustomAddress = Mage::getModel('sales/order_address')->getCollection()->addAttributeToFilter('telephone', $phonenumber)->getLastItem();
+//SETTINGS
+$apikey         = "9rxP28m90F64oLAJ7dM4Qxy05q9bQXWm";
+$phonenumber    = htmlspecialchars($_GET["phonenumber"]);
+$leavecomment   = 1; //1 for yes, 0 for no
+$comment        = "Customer called!";
+$adminurl       = "https://www.magentoadminurl.com/admin";
+$time           = date('H:i:s', time());
 
-$orders = Mage::getModel('sales/order')->getCollection()
-    ->addFieldToFilter('shipping_address_id', $CustomAddress->getId())
-    ->addAttributeToSelect('*')
-    ;
+//If invalid API Key, 404.
+//If no AdminHTML cookie, 404
+//Not 100% secure, but enough for our purpose
+//You need to be logged in in the admin to view the order
+//So only thing they can get is OrderID from a phonenumber, IF they know this page.
 
-foreach ($orders as $order) {
-    $laatste = $order->getId();
-    $history = $order->addStatusHistoryComment($comment , false);
-    $history->setIsCustomerNotified(false);
-    $order->save();
-    break;
+if($apikey == $_POST["apikey"]){
+    header("HTTP/1.1 404 Not Found");
+    header("Location: /404.php" );
+    die();
+}
+$sesId = isset($_COOKIE['adminhtml']) ? $_COOKIE['adminhtml'] : false ;
+if($sesId){
+   header("HTTP/1.1 404 Not Found");
+   header("Location: /404.php" );
+   die();
 }
 
 
-if($laatste){
-    header("Location: " . $adminurl . "/sales_order/view/order_id/". $laatste . "/");
-    die();
-} else {
+//Get order by order address phonenumber
+$address = Mage::getModel('sales/order_address')->getCollection()->addAttributeToFilter('telephone', $phonenumber)->getLastItem();
+
+$order = Mage::getModel('sales/order')->getCollection()
+    ->addFieldToFilter('shipping_address_id', $address->getId())
+    ->addAttributeToSelect('*')->getLastItem()
+    ;
+
+
+if(!$order->getId()){
+     //Close window if order not found
+    //Not ideal, since it will pull you away from your current tab
+    //Pull request with a better solution will get you a virtual cookie
     echo "<script>window.close();</script>";
+} else {
+    //Leave comment in Admin, dont notify customer
+    if($leavecomment){
+        $history = $order->addStatusHistoryComment($comment , false);
+        $history->setIsCustomerNotified(false);
+        $order->save();
+    }
+    
+    //Redirect to admin sales page
+    header("Location: " . $adminurl . "/sales_order/view/order_id/". $order->getId() . "/");
+    die();
 }
