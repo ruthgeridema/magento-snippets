@@ -19,13 +19,13 @@ $time           = date('H:i:s', time());
 //You need to be logged in in the admin to view the order
 //So only thing they can get is OrderID from a phonenumber, IF they know this page.
 
-if($apikey == $_POST["apikey"]){
+if($apikey != $_POST["apikey"]){
     header("HTTP/1.1 404 Not Found");
     header("Location: /404.php" );
     die();
 }
 $sesId = isset($_COOKIE['adminhtml']) ? $_COOKIE['adminhtml'] : false ;
-if($sesId){
+if(!$sesId){
    header("HTTP/1.1 404 Not Found");
    header("Location: /404.php" );
    die();
