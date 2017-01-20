@@ -25,4 +25,4 @@ if($type == "array"){
 return json_decode($return_data, true);
 }
 
-return $return_data;
+return $return_data; //If not an array, return JSON
