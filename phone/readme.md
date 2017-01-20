@@ -2,10 +2,10 @@
 Will try to find the order at every phonecall. 
 I'll look into C# next week to open the browser only when an order is found.
 
-Works best if you remove all dashes (-) at checkout.
-In our production enviroment we get about 60% hit rate.
-Ofcourse doesnt work with anonymous callers.
-Provided 'as is', feel free to modify.
+-Works best if you remove all dashes (-) at checkout.
+-In our production enviroment we get about 60% hit rate.
+-Ofcourse doesnt work with anonymous callers.
+-Provided 'as is', feel free to modify.
 
 
 
