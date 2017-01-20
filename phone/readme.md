@@ -20,6 +20,7 @@ Test it by visiting the url and adding ?phonenumber=0612341234&apikey=apikey beh
 **Setup Phoner**
 Install phoner  
 Copy connected.bat to a directory, for example c:/batfiles/connected.bat
+Change the URL to the one you uploaded and add your API key.
 
 Open Phoner and go to Options>>Communication.
 Check if your phone is there. If not; make it go there :)
