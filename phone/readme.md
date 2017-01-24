@@ -43,6 +43,13 @@ Or you can compile connected.cs with an C# compiler.
 Just change the code where needed, and select the exe instead of the .bat.
 I prefer the exe, because it only opens your browser when an order is found.
 
+Problems with compiling? Just download Visual Studio Code, install the C# extension.
+CD into the directory where the file is in the commandline (type CMD to open).
+Enter the following:
+csc connected.cs
+
+An exe has been generated :)
+
 
 ![alt tag](https://i.gyazo.com/600784d9e45789d2d849ef41a6e815ca.png)
 
