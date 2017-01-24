@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Counter</title>
+	<script type="text/javascript">
+	window.setInterval(function(){
+	            var xhttp = new XMLHttpRequest();
+	            xhttp.onreadystatechange = function() {
+	            if (this.readyState == 4 && this.status == 200) {
+	             document.getElementById("counter").innerHTML = this.responseText;
+	            }
+	 };
+	 xhttp.open("GET", "/statistics/check.php", true);
+	 xhttp.send();
+	       }, 60000); 
+
+	</script>
+	<style type="text/css">
+	   body {
+	 background-color: rgba(0, 19, 43, 0.48);
+	}
+	.container {
+	   position: absolute;
+	   top: 50%;
+	   left: 50%;
+	   -moz-transform: translateX(-50%) translateY(-50%);
+	   -webkit-transform: translateX(-50%) translateY(-50%);
+	   transform: translateX(-50%) translateY(-50%);
+	}
+
+	span {
+	 font-size:100vh;;
+	 color:white;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<span id="counter">-</span>
+	</div>
+</body>
+</html>
