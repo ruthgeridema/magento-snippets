@@ -39,6 +39,10 @@ Check if your phone is there. If not; make it go there :)
 After that go to Options>>External Application
 Selected connected.bat under the 'connected call' field, click on 'OK'.
 
+Or you can compile connected.cs with an C# compiler.
+Just change the code where needed, and select the exe instead of the .bat.
+I prefer the exe, because it only opens your browser when an order is found.
+
 
 ![alt tag](https://i.gyazo.com/600784d9e45789d2d849ef41a6e815ca.png)
 
