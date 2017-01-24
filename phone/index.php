@@ -45,7 +45,10 @@ if(!$order->getId()){
      //Close window if order not found
     //Not ideal, since it will pull you away from your current tab
     //Pull request with a better solution will get you a virtual cookie
+    if($_GET["exe"] != 1){
     echo "<script>window.close();</script>";
+    }
+    
 } else {
     //Leave comment in Admin, dont notify customer
     if($leavecomment){
@@ -55,6 +58,9 @@ if(!$order->getId()){
     }
     
     //Redirect to admin sales page
+    if($_GET["exe"] == 1){
+        echo $adminurl . "/sales_order/view/order_id/". $order->getId() . "/";
+    }
     header("Location: " . $adminurl . "/sales_order/view/order_id/". $order->getId() . "/");
     die();
 }
