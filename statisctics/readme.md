@@ -12,7 +12,7 @@ $toDate = date('Y-m-d H:i:s', strtotime("now"));
 
 to 
 
-$toDate = date('Y-m-d H:i:s', strtotime("today 16:00"));
+$toDate = date('Y-m-d H:i:s', strtotime("**today 16:00**"));
 
 That will display all orders till 16:00, so your warehouse knows how much orders are left to process.
 
