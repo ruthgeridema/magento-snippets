@@ -1,6 +1,6 @@
 <?php
 //Gets the total of processing orders
-//Will be displayed by index.html via AJAX
+//Will be displayed by processing.html via AJAX
 
 require_once '../app/Mage.php';
 Mage::app();
