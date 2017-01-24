@@ -48,7 +48,7 @@ if(!$order->getId()){
     if($_GET["exe"] != 1){
     echo "<script>window.close();</script>";
     }
-    
+    die();
 } else {
     //Leave comment in Admin, dont notify customer
     if($leavecomment){
